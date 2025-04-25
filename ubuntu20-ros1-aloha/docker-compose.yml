@@ -1,0 +1,17 @@
+
+version: "3"
+
+services:
+  ros:
+    image: aloha-ros1:latest
+    container_name: aloha-ros1
+    environment:
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev:/dev
+      - /home/$(whoami)/aloha:/home/aloha
+    tty: true
+    network_mode: "host"
+    privileged: true
